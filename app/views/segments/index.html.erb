@@ -1,0 +1,18 @@
+<h1>Trainline Segments</h1>
+
+<% @segments.each do |segment| %>
+  <div>
+    <h2>From: <%= segment.departure_station %> To: <%= segment.arrival_station %></h2>
+    <p>Departure: <%= segment.departure_at %></p>
+    <p>Arrival: <%= segment.arrival_at %></p>
+    <p>Duration: <%= segment.duration_in_minutes %> minutes</p>
+    <p>Changeovers: <%= segment.changeovers %></p>
+
+    <h3>Fares</h3>
+    <% segment.fares.each do |fare| %>
+      <p>Fare Name: <%= fare.name %></p>
+      <p>Price: <%= fare.price_in_cents %> <%= fare.currency %></p>
+      <p>Comfort Class: <%= fare.comfort_class %></p>
+    <% end %>
+  </div>
+<% end %>
